@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -Wall  -shared  -o libdi_srocs_loop_functions.so CMakeFiles/di_srocs_loop_functions.dir/di_srocs_loop_functions.cpp.o CMakeFiles/di_srocs_loop_functions.dir/di_srocs_loop_functions_autogen/mocs_compilation.cpp.o -Wl,-rpath,/usr/local/lib/argos3 /usr/local/lib/argos3/libargos3srocs_simulator_entities.so 

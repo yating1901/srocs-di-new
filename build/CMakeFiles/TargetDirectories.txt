@@ -1,0 +1,6 @@
+/home/yating/Workspace/srocs-di-new/build/CMakeFiles/rebuild_cache.dir
+/home/yating/Workspace/srocs-di-new/build/CMakeFiles/edit_cache.dir
+/home/yating/Workspace/srocs-di-new/build/loop_functions/CMakeFiles/rebuild_cache.dir
+/home/yating/Workspace/srocs-di-new/build/loop_functions/CMakeFiles/di_srocs_loop_functions.dir
+/home/yating/Workspace/srocs-di-new/build/loop_functions/CMakeFiles/edit_cache.dir
+/home/yating/Workspace/srocs-di-new/build/loop_functions/CMakeFiles/di_srocs_loop_functions_autogen.dir
