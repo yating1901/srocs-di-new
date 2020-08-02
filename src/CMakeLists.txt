@@ -5,6 +5,9 @@ cmake_minimum_required(VERSION 3.1)
 
 project(argos3-di CXX)
 
+#set argos3-srocs path
+set(ARGOS_SROCS_PATH /Users/harry/Desktop/argos3-srocs)
+
 #
 # Set the path additional cmake files must be searched for
 #
@@ -53,3 +56,4 @@ configure_file(
   ${CMAKE_SOURCE_DIR}/experiment/block_usercode.lua
   ${CMAKE_BINARY_DIR}/experiment/block_usercode.lua
   COPYONLY)
+
