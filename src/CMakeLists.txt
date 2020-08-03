@@ -43,6 +43,17 @@ configure_file(
   )
 
 configure_file(
+  ${CMAKE_SOURCE_DIR}/experiment/srocs.argos.in
+  ${CMAKE_BINARY_DIR}/experiment/srocs.argos
+  )
+
+configure_file(
+  ${CMAKE_SOURCE_DIR}/experiment/template.argos.in
+  ${CMAKE_BINARY_DIR}/experiment/template.argos
+  )
+
+
+configure_file(
   ${CMAKE_SOURCE_DIR}/experiment/example_block.lua
   ${CMAKE_BINARY_DIR}/experiment/example_block.lua
   COPYONLY)
