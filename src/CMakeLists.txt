@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.1)
 project(argos3-di CXX)
 
 #set argos3-srocs path
-set(ARGOS_SROCS_PATH /Users/harry/Desktop/argos3-srocs)
+set(ARGOS_SROCS_PATH /home/yating/Workspace/argos3-srocs-hurry)
 
 #
 # Set the path additional cmake files must be searched for
