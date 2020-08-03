@@ -1,0 +1,3 @@
+1. install argos3 and argos3-srocs
+2. change line 9 of CMakeLists.txt to your argos3-srocs folder position
+3. make and run
