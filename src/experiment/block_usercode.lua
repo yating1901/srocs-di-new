@@ -248,7 +248,7 @@ function user_code.clean_root_tree()
          for index, key in pairs(user_code.drop_list) do
             if key == bit_index then
                table.insert(change_index_list, start_index)
-               print("change_index_list", start_index)                  
+               --print("change_index_list", start_index)                  
             end
          end
          start_index = end_index
@@ -264,7 +264,7 @@ function user_code.clean_root_tree()
    for new_index, new_data in pairs(new_branch_data) do 
       if new_data ~= nil then 
          table.insert(robot.branch_data, new_data)
-         print("new_branch_data", new_index, new_data)
+         --print("new_branch_data", new_index, new_data)
       end
    end
    robot.clean_tree = true 
@@ -395,7 +395,7 @@ function user_code.step(time)
                user_code.insert_tree()
             end
             --check if top child has been detected--
-            if #user_code.tx_as_target > 9 then
+            if #user_code.tx_as_target == 10 and robot.top_detected == false then
                user_code.get_structure_being_built()
                user_code.locate_branch()    -- be careful if there are two top faces connected!
                if robot.top_detected == true and robot.clean_tree == false then
@@ -410,6 +410,12 @@ function user_code.step(time)
             end
             if iscompleted == true then
                robot.directional_leds.set_all_colors("blue")
+
+               --for newest_index, newest_data in pairs(robot.branch_data) do 
+               --   if newest_data ~= nil then 
+               --      print("newest_branch_data", newest_index, newest_data)
+               --   end
+              -- end
             end
          end
       end

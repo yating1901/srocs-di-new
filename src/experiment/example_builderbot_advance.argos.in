@@ -35,7 +35,7 @@
         <builderbot_system implementation="default" />
         <wifi implementation="default" />
       </sensors>
-      <params script="@CMAKE_BINARY_DIR@/experiment/example_builderbot_advance.lua" 
+      <params script="/home/yating/Workspace/srocs-di-new/build/experiment/example_builderbot_advance.lua" 
               search_random_range="25"
       />
     </lua_controller>
@@ -48,14 +48,14 @@
       <sensors>
         <radios implementation="default" show_rays="true"/>
       </sensors>
-      <params script="@CMAKE_BINARY_DIR@/experiment/example_block.lua" />
+      <params script="/home/yating/Workspace/srocs-di-new/build/experiment/example_block.lua" />
     </lua_controller>
   </controllers>
 
 <!-- ****************** -->
   <!-- * Loop functions * -->
   <!-- ****************** -->
-  <loop_functions library="@CMAKE_BINARY_DIR@/loop_functions/libdi_srocs_loop_functions"
+  <loop_functions library="/home/yating/Workspace/srocs-di-new/build/loop_functions/libdi_srocs_loop_functions"
                   label="di_srocs_loop_functions">
     <condition type = "any" once = "true">
       <condition type = "all">
@@ -214,7 +214,7 @@
   <!-- ****************** -->
   <visualization>
     <qt-opengl lua_editor="true" show_boundary="false">
-      <user_functions library="@ARGOS_SROCS_PATH@/build/testing/builderbot/libbuilderbot_qtopengl_user_functions"
+      <user_functions library="/home/yating/Workspace/argos3-srocs-hurry/build/testing/builderbot/libbuilderbot_qtopengl_user_functions"
                       label="builderbot_qtopengl_user_functions" />
       <camera>
         <placement idx="0" position=" 0,-3,1" look_at="0,0,0.05" lens_focal_length="78" />

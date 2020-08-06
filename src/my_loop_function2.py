@@ -28,11 +28,11 @@ def generate_argos_file(i, len):
 
 
 #os.system("mkdir data/" + testfolder + "/random")
-len = 0
+len = 50000
 test_number = 25
 #make -C ../&& argos3 -c srocs.argos 
 #for i in range(83, 84):
-for i in range(1, test_number + 1):
+for i in range(5, test_number + 1):
 	print("running test" + str(i))
 	generate_argos_file(i, len)
 	os.system("argos3 -c experiment/srocs.argos")
