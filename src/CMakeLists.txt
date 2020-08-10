@@ -33,18 +33,8 @@ add_subdirectory(loop_functions)
 #
 
 configure_file(
-  ${CMAKE_SOURCE_DIR}/experiment/example_builderbot_advance.argos.in
-  ${CMAKE_BINARY_DIR}/experiment/example_builderbot_advance.argos
-  )
-
-configure_file(
   ${CMAKE_SOURCE_DIR}/experiment/example_builderbot_advance.lua.in
   ${CMAKE_BINARY_DIR}/experiment/example_builderbot_advance.lua
-  )
-
-configure_file(
-  ${CMAKE_SOURCE_DIR}/experiment/srocs.argos.in
-  ${CMAKE_BINARY_DIR}/experiment/srocs.argos
   )
 
 configure_file(
