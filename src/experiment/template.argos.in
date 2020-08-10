@@ -133,7 +133,6 @@
         </builderbot>
       </entity>
     </distribute>
-
     <distribute>
      <position method="uniform" min="-0.1,0.3,0" max="0.2,0.5,0" />
       <orientation method="uniform" min="75,0,0" max="105,0,0" />
@@ -144,6 +143,7 @@
         </builderbot>
       </entity>
     </distribute>
+    <!-- 
     <distribute>
      <position method="uniform" min="0.3,-0.1,0" max="0.5,0.1,0" />
       <orientation method="uniform" min="-15,0,0" max="15,0,0" />
@@ -164,7 +164,7 @@
         </builderbot>
       </entity>
     </distribute>
-
+     -->
     <!-- distribute free blocks -->
      <distribute>
      <position method="uniform" min="0.6,0.6,0" max="0.8,0.8,0" />
@@ -231,7 +231,7 @@
 
   <!-- ****************** -->
   <!-- * Visualization * -->
-  <!-- ****************** 
+  <!-- ****************** -->
   <visualization>
     <qt-opengl lua_editor="true" show_boundary="false">
       <user_functions library="/home/yating/Workspace/argos3-srocs/build/testing/builderbot/libbuilderbot_qtopengl_user_functions"
@@ -249,6 +249,6 @@
       </camera>
     </qt-opengl>
   </visualization>
-  -->
+  
 </argos-configuration>
 

@@ -52,6 +52,9 @@ configure_file(
   ${CMAKE_BINARY_DIR}/experiment/template.argos
   )
 
+configure_file(
+  ${CMAKE_SOURCE_DIR}/experiment/my_generate_data.py
+  ${CMAKE_BINARY_DIR}/experiment/my_generate_data.py
 
 configure_file(
   ${CMAKE_SOURCE_DIR}/experiment/example_block.lua
