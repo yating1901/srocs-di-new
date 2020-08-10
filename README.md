@@ -14,6 +14,7 @@
 5. If you want to run the simulations, run my_generation_data.py by using command: 
 
    `python my_generation_data.py`
+   
    This python script will help run the argos file and save the output .csv files into different sub folder,as well as compress all the data into hdf5.
 6. To deal with hdf5, you have to install package h5py by using command:
 
