@@ -1,4 +1,4 @@
-# Guidelines
+## Guidelines
 1. Install argos3 and argos3-srocs (make sure you install with the updatest version)
 2. Change line 9 of CMakeLists.txt to your argos3-srocs folder position
 3. Steps for making:
