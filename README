@@ -1,11 +1,11 @@
-1. Install argos3 and argos3-srocs
+# Guidelines
+1. Install argos3 and argos3-srocs (make sure you install with the updatest version)
 2. Change line 9 of CMakeLists.txt to your argos3-srocs folder position
-3. Steps for make:
+3. Steps for making:
    mkdir build
    cd build
    cmake ../src
    make
-
 4. if you want to run .argos file, using command: argos3 -c filename.argos 
 5. if you want to run the simulations, run my_generation_data.py by using command: python my_generation_data.py
    this script will help run the argos file and save the output .csv files into different sub folder, e.g. data1, data2 etc.
