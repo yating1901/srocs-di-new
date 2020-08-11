@@ -1,5 +1,5 @@
 -- load the interface
-user_code = require('block_usercode')
+user_code = require('dcp_block_usercode')
 
 clock = 0
 

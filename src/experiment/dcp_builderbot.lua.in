@@ -2,7 +2,7 @@ assert(loadfile("/usr/local/include/argos3/plugins/robots/builderbot/lua_library
 
 --local data -- make data global for debug so that it can be seen in lua_editor
 local behavior
-local rules = require("test_sample_rules")
+local rules = require("dcp_builderbot_rules")
 
 function init()  
    robot.logger:register_module("controller")

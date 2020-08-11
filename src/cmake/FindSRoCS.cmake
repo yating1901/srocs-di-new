@@ -29,15 +29,21 @@ set(ARGOS_VERSION_RELEASE "${ARGOS_VERSION}-${ARGOS_RELEASE}")
 
 # find the core library
 find_library(SROCS_ENTITIES_LIBRARY
-  NAMES argos3srocs_${ARGOS_BUILD_FOR}_entities
+  NAMES argos3srocs_simulator_entities
   PATH_SUFFIXES argos3
   DOC "The SRoCS entity library"
 )
 
+find_library(SROCS_BUILDERBOT_LIBRARY
+  NAMES argos3srocs_simulator_builderbot
+  PATH_SUFFIXES argos3
+  DOC "The SRoCS builderbot library"
+)
+
 find_library(ARGOS_QTOPENGL_LIBRARY
-    NAMES argos3plugin_${ARGOS_BUILD_FOR}_qtopengl
-    PATH_SUFFIXES argos3
-    DOC "The ARGoS QtOpenGL library"
+  NAMES argos3plugin_simulator_qtopengl
+  PATH_SUFFIXES argos3
+  DOC "The ARGoS Qt-OpenGL library"
 )
 
 if(ARGOS_QTOPENGL_LIBRARY)

@@ -9,7 +9,9 @@ namespace argos {
    /****************************************/
    /****************************************/
 
-   CDISRoCSLoopFunctions::CDISRoCSLoopFunctions() {}
+   CDISRoCSLoopFunctions::CDISRoCSLoopFunctions() :
+      m_strOutputDirectory("."),
+      m_bTerminate(false) {}
 
    /****************************************/
    /****************************************/
@@ -23,6 +25,10 @@ namespace argos {
          /* parse the condition */
          m_vecConditions.emplace_back(ParseCondition(*itCondition));
       }
+      GetNodeAttributeOrDefault(t_tree,
+                                "output_directory",
+                                m_strOutputDirectory,
+                                m_strOutputDirectory);
    }
 
    /****************************************/
@@ -238,10 +244,11 @@ namespace argos {
       std::map<std::string, std::ofstream>::iterator itOutputStream =
          m_mapOutputStreams.find(str_entity_id);
       if(itOutputStream == std::end(m_mapOutputStreams)) {
+         std::string strOutputFilename(m_strOutputDirectory + "/" + str_entity_id + ".csv");
          std::pair<std::map<std::string, std::ofstream>::iterator, bool> cResult =
             m_mapOutputStreams.emplace(std::piecewise_construct,
                                        std::forward_as_tuple(str_entity_id),
-                                       std::forward_as_tuple(str_entity_id + ".csv",
+                                       std::forward_as_tuple(strOutputFilename,
                                                              std::ios_base::out |
                                                              std::ios_base::trunc));
          if(cResult.second) {

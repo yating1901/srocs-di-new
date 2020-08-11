@@ -162,6 +162,7 @@ namespace argos {
 
       std::map<std::string, UInt32> m_mapTimers;
       std::map<std::string, std::ofstream> m_mapOutputStreams;
+      std::string m_strOutputDirectory;
 
       bool m_bTerminate = false;
 
