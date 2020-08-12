@@ -5,9 +5,9 @@ import subprocess
 import tables
 import pandas
 import os
-
 from copy import deepcopy
 from time import sleep
+import re
 
 # create a lock for writing to the terminal
 terminal_lock = threading.Lock()
@@ -36,21 +36,26 @@ class ARGoSJob(threading.Thread):
       
    def run(self):
       subprocess.run(['argos3', '-c', self.config_file.name], capture_output=True)
+      Data = []
       for dir_entry in os.listdir(self.output_dir.name):
          if dir_entry.endswith(".csv"):
             output_file = os.path.join(self.output_dir.name, dir_entry)
-            data = pandas.read_csv(output_file)
+            data = pandas.read_csv(output_file, header = None)
             object_id = os.path.basename(os.path.splitext(output_file)[0])
-            data.insert(0, 'id', object_id)
-            data.insert(0, 'seed', self.seed)
+            o_id = re.findall(r"\d+\.?\d*", object_id)[0]
+            data.drop([4],axis=1,inplace=True)
+            data.insert(4,4, self.seed)
+            data.insert(5,5, o_id)
+            data.columns=['Step','X','Y','Z','Seed','ID']
+            Data.append(data)
       # acquire the lock
       with self.dataset['lock']:
-         self.dataset['data'] = self.dataset['data'].append(data)
+         self.dataset['data'] = self.dataset['data'].append(Data)
          self.dataset['jobs'] -= 1
          # if we were the last job
          if self.dataset['jobs'] == 0:
             with terminal_lock:
-               print('writing data to %s.hdf' % self.dataset['name'])
+               print('writing Data to %s.hdf' % self.dataset['name'])
             self.dataset['data'].to_hdf('%s.hdf' % self.dataset['name'], 'table', append=False)
 
 # run the argos jobs in parallel
@@ -99,7 +104,7 @@ def create_dataset(name):
 jobs = []
 
 # open the template configuration file
-config = xml.etree.ElementTree.parse('@CMAKE_BINARY_DIR@/experiment/dcp_template.argos').getroot()
+config = xml.etree.ElementTree.parse('/home/yating/Workspace/srocs-di-new/build/experiment/dcp_template.argos').getroot()
 framework = config.find('./framework')
 experiment = framework.find('./experiment')
 visualization = config.find('./visualization')
@@ -107,14 +112,14 @@ loop_functions = config.find('./loop_functions')
 
 # experiment parameters
 # TODO set maximum experiment length here
-experiment.attrib['length'] = '100'
+experiment.attrib['length'] = '10'
 
 # remove the qtopengl visualization
 if visualization.find('./qt-opengl') is not None:
    visualization.remove(visualization.find('./qt-opengl'))
 
 dataset = create_dataset('dcp')
-for run in range(0,10):
+for run in range(0,1):
     seed = run + 1
     desc = 'no description'
     job = ARGoSJob(desc, config, seed, dataset)
@@ -123,3 +128,4 @@ for run in range(0,10):
 
 # execute all jobs (second number should be how many CPUs you want to use)
 run_argos_jobs(jobs, 2)
+
