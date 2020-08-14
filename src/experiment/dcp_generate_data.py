@@ -43,11 +43,13 @@ class ARGoSJob(threading.Thread):
             data = pandas.read_csv(output_file, header = None)
             object_id = os.path.basename(os.path.splitext(output_file)[0])
             o_id = re.findall(r"\d+\.?\d*", object_id)[0]
-            data.drop([4],axis=1,inplace=True)
-            data.insert(4,4, self.seed)
-            data.insert(5,5, o_id)
-            data.columns=['Step','X','Y','Z','Seed','ID']
-            Data.append(data)
+            if not(object_id.find('freeblock')):
+                #print(o_id)
+                data.drop([4],axis=1,inplace=True)
+                data.insert(4,4, self.seed)
+                data.insert(5,5, o_id)
+                data.columns=['STEP','X','Y','Z','SEED','ID']
+                Data.append(data)
       # acquire the lock
       with self.dataset['lock']:
          self.dataset['data'] = self.dataset['data'].append(Data)
@@ -112,14 +114,14 @@ loop_functions = config.find('./loop_functions')
 
 # experiment parameters
 # TODO set maximum experiment length here
-experiment.attrib['length'] = '10'
+experiment.attrib['length'] = '10000'
 
 # remove the qtopengl visualization
 if visualization.find('./qt-opengl') is not None:
    visualization.remove(visualization.find('./qt-opengl'))
 
 dataset = create_dataset('dcp')
-for run in range(0,1):
+for run in range(0,10):
     seed = run + 1
     desc = 'no description'
     job = ARGoSJob(desc, config, seed, dataset)
@@ -128,4 +130,3 @@ for run in range(0,1):
 
 # execute all jobs (second number should be how many CPUs you want to use)
 run_argos_jobs(jobs, 2)
-
