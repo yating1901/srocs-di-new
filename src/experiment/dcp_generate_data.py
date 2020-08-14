@@ -106,7 +106,7 @@ def create_dataset(name):
 jobs = []
 
 # open the template configuration file
-config = xml.etree.ElementTree.parse('/home/yating/Workspace/srocs-di-new/build/experiment/dcp_template.argos').getroot()
+config = xml.etree.ElementTree.parse('@CMAKE_BINARY_DIR@/experiment/dcp_template.argos').getroot()
 framework = config.find('./framework')
 experiment = framework.find('./experiment')
 visualization = config.find('./visualization')
