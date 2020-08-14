@@ -1,4 +1,4 @@
-package.preload['nodes_search_block'] = function()
+--package.preload['nodes_search_block'] = function()
    -- register module with logger
    robot.logger:register_module('nodes_search_block')
    
@@ -72,4 +72,4 @@ package.preload['nodes_search_block'] = function()
          },
       }
    end
-end
+--end

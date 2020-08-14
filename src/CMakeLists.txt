@@ -47,27 +47,31 @@ endif(ARGOS_COMPILE_QTOPENGL)
 #
 # Configure examples
 #
-configure_file(${CMAKE_SOURCE_DIR}/experiment/dcp_template.argos.in
-               ${CMAKE_BINARY_DIR}/experiment/dcp_template.argos)
+configure_file(${CMAKE_SOURCE_DIR}/experiment/bgc_template.argos.in
+               ${CMAKE_BINARY_DIR}/experiment/bgc_template.argos)
 
-configure_file(${CMAKE_SOURCE_DIR}/experiment/dcp_generate_data.py
-               ${CMAKE_BINARY_DIR}/experiment/dcp_generate_data.py)
+configure_file(${CMAKE_SOURCE_DIR}/experiment/bgc_generate_data.py
+               ${CMAKE_BINARY_DIR}/experiment/bgc_generate_data.py)
                
-configure_file(${CMAKE_SOURCE_DIR}/experiment/dcp_process_data.py
-               ${CMAKE_BINARY_DIR}/experiment/dcp_process_data.py)
+configure_file(${CMAKE_SOURCE_DIR}/experiment/bgc_process_data.py
+               ${CMAKE_BINARY_DIR}/experiment/bgc_process_data.py)
 
-configure_file(${CMAKE_SOURCE_DIR}/experiment/dcp_builderbot.lua.in
-               ${CMAKE_BINARY_DIR}/experiment/dcp_builderbot.lua)
+configure_file(${CMAKE_SOURCE_DIR}/experiment/bgc_builderbot.lua.in
+               ${CMAKE_BINARY_DIR}/experiment/bgc_builderbot.lua)
 
-configure_file(${CMAKE_SOURCE_DIR}/experiment/dcp_builderbot_rules.lua
-               ${CMAKE_BINARY_DIR}/experiment/dcp_builderbot_rules.lua
+configure_file(${CMAKE_SOURCE_DIR}/experiment/bgc_builderbot_rules.lua
+               ${CMAKE_BINARY_DIR}/experiment/bgc_builderbot_rules.lua
                COPYONLY)
 
-configure_file(${CMAKE_SOURCE_DIR}/experiment/dcp_block.lua
-               ${CMAKE_BINARY_DIR}/experiment/dcp_block.lua
+configure_file(${CMAKE_SOURCE_DIR}/experiment/bgc_block.lua
+               ${CMAKE_BINARY_DIR}/experiment/bgc_block.lua
                COPYONLY)
 
-configure_file(${CMAKE_SOURCE_DIR}/experiment/dcp_block_usercode.lua
-               ${CMAKE_BINARY_DIR}/experiment/dcp_block_usercode.lua
+configure_file(${CMAKE_SOURCE_DIR}/experiment/bgc_search_block.lua
+               ${CMAKE_BINARY_DIR}/experiment/bgc_search_block.lua
+               COPYONLY)
+
+configure_file(${CMAKE_SOURCE_DIR}/experiment/bgc_block_usercode.lua
+               ${CMAKE_BINARY_DIR}/experiment/bgc_block_usercode.lua
                COPYONLY)
 

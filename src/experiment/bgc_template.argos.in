@@ -34,7 +34,7 @@
         <builderbot_system implementation="default" />
         <wifi implementation="default" />
       </sensors>
-      <params script="@CMAKE_BINARY_DIR@/experiment/dcp_builderbot.lua"
+      <params script="@CMAKE_BINARY_DIR@/experiment/bgc_builderbot.lua"
           search_random_range="25" />
     </lua_controller>
 
@@ -46,7 +46,7 @@
       <sensors>
         <radios implementation="default" show_rays="true"/>
       </sensors>
-      <params script="@CMAKE_BINARY_DIR@/experiment/dcp_block.lua" />
+      <params script="@CMAKE_BINARY_DIR@/experiment/bgc_block.lua" />
     </lua_controller>
   </controllers>
 
