@@ -45,7 +45,7 @@ class ARGoSJob(threading.Thread):
             o_id = re.findall(r"\d+\.?\d*", object_id)[0]
             if not(object_id.find('freeblock')):
                 #print(o_id)
-                data.drop([4],axis=1,inplace=True)
+                #data.drop([4],axis=1,inplace=True)
                 data.insert(4,4, self.seed)
                 data.insert(5,5, o_id)
                 data.columns=['STEP','X','Y','Z','SEED','ID']

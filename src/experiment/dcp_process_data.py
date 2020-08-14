@@ -34,8 +34,6 @@ def draw_trajectory(dataset, SEED):
     plt.show()
 
 
-
-
 def box_plot(steps):
     print(steps)
     Data={}
@@ -74,3 +72,4 @@ steps[3] = 100
 steps[4] = 0
 box_plot(steps)
 draw_trajectory(dataset,1)
+
