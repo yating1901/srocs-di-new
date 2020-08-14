@@ -164,7 +164,8 @@ namespace argos {
       std::map<std::string, std::ofstream> m_mapOutputStreams;
       std::string m_strOutputDirectory;
 
-      bool m_bTerminate = false;
+      bool m_bTerminate;
+      bool m_bControllerOutput;
 
    };
 

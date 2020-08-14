@@ -11,7 +11,8 @@ namespace argos {
 
    CDISRoCSLoopFunctions::CDISRoCSLoopFunctions() :
       m_strOutputDirectory("."),
-      m_bTerminate(false) {}
+      m_bTerminate(false),
+      m_bControllerOutput(false) {}
 
    /****************************************/
    /****************************************/
@@ -29,6 +30,10 @@ namespace argos {
                                 "output_directory",
                                 m_strOutputDirectory,
                                 m_strOutputDirectory);
+      GetNodeAttributeOrDefault(t_tree,
+                                "controller_output",
+                                m_bControllerOutput,
+                                m_bControllerOutput);                                
    }
 
    /****************************************/
@@ -258,17 +263,18 @@ namespace argos {
             THROW_ARGOSEXCEPTION("Could not insert output stream into map");
          }
       }
-      std::string strOutputBuffer(c_debug_entity.GetBuffer("loop_functions"));
-      std::string::iterator itRemove =
-         std::remove(std::begin(strOutputBuffer), std::end(strOutputBuffer), '\n');
-      strOutputBuffer.erase(itRemove, std::end(strOutputBuffer));
       itOutputStream->second 
          << unClock
          << ","
-         << c_embodied_entity.GetOriginAnchor().Position
-         << ","
-         << strOutputBuffer
-         << std::endl;
+         << c_embodied_entity.GetOriginAnchor().Position;
+      if(m_bControllerOutput) {
+         std::string strOutputBuffer(c_debug_entity.GetBuffer("loop_functions"));
+         std::string::iterator itRemove =
+            std::remove(std::begin(strOutputBuffer), std::end(strOutputBuffer), '\n');
+         strOutputBuffer.erase(itRemove, std::end(strOutputBuffer));
+         itOutputStream->second << "," << strOutputBuffer;
+      }
+      itOutputStream->second << std::endl;
    }
 
    /****************************************/
