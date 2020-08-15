@@ -63,6 +63,10 @@ configure_file(${CMAKE_SOURCE_DIR}/experiment/dcp_builderbot_rules.lua
                ${CMAKE_BINARY_DIR}/experiment/dcp_builderbot_rules.lua
                COPYONLY)
 
+configure_file(${CMAKE_SOURCE_DIR}/experiment/dcp_search_block.lua
+               ${CMAKE_BINARY_DIR}/experiment/dcp_search_block.lua
+               COPYONLY)
+
 configure_file(${CMAKE_SOURCE_DIR}/experiment/dcp_block.lua
                ${CMAKE_BINARY_DIR}/experiment/dcp_block.lua
                COPYONLY)
