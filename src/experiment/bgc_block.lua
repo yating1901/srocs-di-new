@@ -1,60 +1,56 @@
--- load the interface
-user_code = require('bgc_block_usercode')
-
-clock = 0
-
-function init()
-   -- init the clock
-   clock = 0
-   -- init the simulated nfc controllers
-   for id, radio in pairs(robot.radios) do
-      radio.initiator_policy = "disable"
-      radio.role = "target"
+function init() 
+   if robot.id == 'block03' then
+      robot.directional_leds.set_all_colors('orange')
+   elseif robot.id == 'block10' then
+      robot.directional_leds.set_all_colors('orange')
+   elseif robot.id == 'block1' then
+      robot.directional_leds.set_all_colors('green')
+   elseif robot.id == 'block2' then
+      robot.directional_leds.set_all_colors('green')
+   elseif robot.id == 'block3' then
+      robot.directional_leds.set_all_colors('green')
+   elseif robot.id == 'block4' then
+      robot.directional_leds.set_all_colors('green')
+   elseif robot.id == 'block5' then
+      robot.directional_leds.set_all_colors('green')
+   elseif robot.id == 'block6' then
+      robot.directional_leds.set_all_colors('green')
+   elseif robot.id == 'block7' then
+      robot.directional_leds.set_all_colors('green')
+   elseif robot.id == 'block8' then
+      robot.directional_leds.set_all_colors('green')
+   elseif robot.id == 'block01' then
+      robot.directional_leds.set_all_colors('green')
+   elseif robot.id == 'block02' then
+      robot.directional_leds.set_all_colors('green')  
+   elseif robot.id == 'block9' then
+      robot.directional_leds.set_all_colors('green')   
+   else
+      robot.directional_leds.set_all_colors('black')
    end
-   -- init user code
-   user_code.init()
 end
-
 function step()
-   -- step the clock
-   clock = clock + 1
-   -- step the simulated nfc controllers
-   for identifier, radio in pairs(robot.radios) do
+   for identifer, radio in pairs(robot.radios) do
       if #radio.rx_data > 0 then
-         if radio.role == "target" then
-            if radio.rx_as_target then
-               radio.rx_as_target(identifier, radio.rx_data)
-            end
-            if radio.tx_as_target then
-               radio.tx_data(radio.tx_as_target(identifier))
-            else
-               radio.tx_data({})
-            end
-         elseif radio.role == "initiator" then
-            if radio.rx_as_initiator then
-               radio.rx_as_initiator(identifier, radio.rx_data)
-            end
-         end
-      elseif radio.initiator_policy ~= "disable" then
-         radio.role = "initiator"
-         if radio.initiator_policy == "once" then
-            radio.initiator_policy = "disable"
-         end
-         if radio.tx_as_initiator then
-            radio.tx_data(radio.tx_as_initiator(identifier))
-         else
-            radio.tx_data({})
+         configuration = string.char(radio.rx_data[1][1])
+         -- debug
+         print('received ' .. configuration .. ' on ' .. identifer)
+         -- debug
+         if configuration == '0' then
+            robot.directional_leds.set_all_colors('black')
+         elseif configuration == '1' then
+            robot.directional_leds.set_all_colors('magenta')
+         elseif configuration == '2' then
+            robot.directional_leds.set_all_colors('orange')
+         elseif configuration == '3' then
+            robot.directional_leds.set_all_colors('green')
+         elseif configuration == '4' then
+            robot.directional_leds.set_all_colors('blue')
          end
       end
    end
-   -- step user code
-   user_code.step(clock)
 end
-
 function reset()
-   -- recall init()
-   init()
 end
-
 function destroy()
 end

@@ -71,7 +71,3 @@ configure_file(${CMAKE_SOURCE_DIR}/experiment/bgc_search_block.lua
                ${CMAKE_BINARY_DIR}/experiment/bgc_search_block.lua
                COPYONLY)
 
-configure_file(${CMAKE_SOURCE_DIR}/experiment/bgc_block_usercode.lua
-               ${CMAKE_BINARY_DIR}/experiment/bgc_block_usercode.lua
-               COPYONLY)
-

@@ -6,7 +6,7 @@
   <!-- ************************* -->
   <framework>
     <system threads="0" />
-    <experiment length="0" ticks_per_second="5" random_seed="0" />
+    <experiment length="0" ticks_per_second="5" random_seed="3" />
   </framework>
   <!-- *************** -->
   <!-- * Controllers * -->
@@ -58,136 +58,105 @@
                   output_directory=".">
     <condition type = "any" once = "true">
       <condition type = "all">
-        <condition type="entity" target="block:" position="-0.055,0.0,0.055" threshold="0.035"/>
-        <condition type="entity" target="block:" position="0.055,0.0,0.055" threshold="0.035"/>
+        <condition type="entity" target="block:" position="-0.325,0.3,0.055" threshold="0.035"/>
+        <condition type="entity" target="block:" position="0.33,0.3,0.055" threshold="0.035"/>
       </condition>
-      <condition type = "all">
-        <condition type="entity" target="block:" position="0.0,-0.055,0.055" threshold="0.035"/>
-        <condition type="entity" target="block:" position="0.0,0.055,0.055" threshold="0.035"/>
-      </condition>
-    <action type="terminate" delay="50"/>
+      <action type="terminate" delay="50"/>
     </condition>
   </loop_functions>
 
-  <!-- *********************** -->
+    <!-- *********************** -->
   <!-- * Arena configuration * -->
   <!-- *********************** -->
-  <arena size="2, 2, 2" center="0, 0, 0.75">
-    <box id="bn" size="0.05,1.95,0.1" movable="false" mass="10">
-      <body position="0.975,0.025,0"  orientation="0,0,0" />
+  <arena size="1.5, 1.5, 2" center="0, 0, 0.5">
+    <box id="bn" size="0.025,1,0.055" movable="false" mass="10">
+      <body position="0.5,0.0125,0" orientation="0,0,0" />
     </box>
-    <box id="be" size="1.95,0.05,0.1" movable="false" mass="10">
-      <body position="0.025,-0.975,0"  orientation="0,0,0" />
+    <box id="be" size="1,0.025,0.055" movable="false" mass="10">
+      <body position="0.0125,-0.5,0" orientation="0,0,0" />
     </box>
-    <box id="bs" size="0.05,1.95,0.1" movable="false" mass="10">
-      <body position="-0.975,-0.025,0"  orientation="0,0,0" />
+    <box id="bs" size="0.025,1,0.055" movable="false" mass="10">
+      <body position="-0.5,-0.0125,0" orientation="0,0,0" />
     </box>
-    <box id="bw" size="1.95,0.05,0.1" movable="false" mass="10">
-      <body position="-0.025,0.975,0"  orientation="0,0,0" />
+    <box id="bw" size="1,0.025,0.055" movable="false" mass="10">
+      <body position="-0.0125,0.5,0" orientation="0,0,0" />
     </box>
-    <!-- add a fixed seed block -->
-    <block id="block0" debug="false" movable="false">
-      <body position="0.0,0,0" orientation="90,0,0"/>
+
+    <builderbot id="builderbot1" debug="false">
+      <body position="0.0,0.15,0.0" orientation="270,0,0"/>
+      <controller config="builderbot"/>
+    </builderbot>
+    <!--
+    <block id="block0" debug="false" movable="true">
+      <body position="0.0,-0.155,0.010" orientation="0,0,0"/>
       <controller config="block"/>
     </block>
-   <block id="block1" debug="false" movable="false">
-      <body position="-0.055,0,0" orientation="90,0,0"/>
+    -->
+     <block id="block03" debug="false" movable="false">
+      <body position="-0.325,0.3,0.0" orientation="0,0,0"/>
       <controller config="block"/>
     </block>
-   <block id="block2" debug="false" movable="false">
-      <body position="0.055,0,0" orientation="90,0,0"/>
+     <block id="block02" debug="false" movable="false">
+      <body position="-0.27,0.3,0.0" orientation="0,0,0"/>
       <controller config="block"/>
     </block>
-   <block id="block3" debug="false" movable="false">
-      <body position="0.0,-0.055,0" orientation="90,0,0"/>
+     <block id="block01" debug="false" movable="false">
+      <body position="-0.215,0.3,0.0" orientation="0,0,0"/>
       <controller config="block"/>
     </block>
-   <block id="block4" debug="false" movable="false">
-      <body position="0.055,-0.055,0" orientation="90,0,0"/>
-      <controller config="block"/>
-    </block>
-    <block id="block5" debug="false" movable="false">
-      <body position="-0.055,-0.055,0" orientation="90,0,0"/>
-      <controller config="block"/>
-    </block>
-   <block id="block6" debug="false" movable="false">
-      <body position="0.0,0.055,0" orientation="90,0,0"/>
-      <controller config="block"/>
-    </block>
-   <block id="block7" debug="false" movable="false">
-      <body position="-0.055,0.055,0" orientation="90,0,0"/>
-      <controller config="block"/>
-   </block>
-   <block id="block8" debug="false" movable="false">
-      <body position="0.055,0.055,0" orientation="90,0,0"/>
-      <controller config="block"/>
-    </block>
- <!-- distribute free builderbots -->
+    <block id="block1" debug="false" movable="false">
+        <body position="-0.16,0.3,0.0" orientation="0,0,0"/>
+        <controller config="block"/>
+      </block>
+      <block id="block2" debug="false" movable="false">
+        <body position="-0.105,0.3,0.0" orientation="0,0,0"/>
+        <controller config="block"/>
+      </block>
+    <block id="block3" debug="false" movable="false">
+        <body position="-0.055,0.3,0.0" orientation="0,0,0"/>
+        <controller config="block"/>
+      </block>
+    <block id="block4" debug="false" movable="false">
+        <body position="0,0.3,0.0" orientation="0,0,0"/>
+        <controller config="block"/>
+      </block>
+      <block id="block5" debug="false" movable="false">
+        <body position="0.055,0.3,0.0" orientation="0,0,0"/>
+        <controller config="block"/>
+      </block>
+      <block id="block6" debug="false" movable="false">
+        <body position="0.11,0.3,0.0" orientation="0,0,0"/>
+        <controller config="block"/>
+      </block>
+       <block id="block7" debug="false" movable="false">
+        <body position="0.165,0.3,0.0" orientation="0,0,0"/>
+        <controller config="block"/>
+      </block>
+      <block id="block8" debug="false" movable="false">
+        <body position="0.22,0.3,0.0" orientation="0,0,0"/>
+        <controller config="block"/>
+      </block>
+      <block id="block9" debug="false" movable="false">
+        <body position="0.275,0.3,0.0" orientation="0,0,0"/>
+        <controller config="block"/>
+      </block>
+      <block id="block10" debug="false" movable="false">
+        <body position="0.33,0.3,0.0" orientation="0,0,0"/>
+        <controller config="block"/>
+      </block>
     <distribute>
-     <position method="uniform" min="-0.1,-0.5,0" max="0.2,-0.3,0" />
-      <orientation method="uniform" min="255,0,0" max="285,0,0" />
-      <entity quantity="1" max_trials="100">
-        <builderbot id="builderbot0" debug="false">
-          <body position="0,0,0" orientation="0,0,0"/>
-          <controller config="builderbot"/>
-        </builderbot>
-      </entity>
-    </distribute>
-    <distribute>
-     <position method="uniform" min="-0.1,0.3,0" max="0.2,0.5,0" />
-      <orientation method="uniform" min="75,0,0" max="105,0,0" />
-      <entity quantity="1" max_trials="100">
-        <builderbot id="builderbot1" debug="false">
-          <body position="-0,0,0" orientation="0,0,0"/>
-          <controller config="builderbot"/>
-        </builderbot>
-      </entity>
-    </distribute>
-    <!-- 
-    <distribute>
-     <position method="uniform" min="0.3,-0.1,0" max="0.5,0.1,0" />
-      <orientation method="uniform" min="-15,0,0" max="15,0,0" />
-      <entity quantity="1" max_trials="100">
-        <builderbot id="builderbot2" debug="false">
-          <body position="-0,0,0" orientation="0,0,0"/>
-          <controller config="builderbot"/>
-        </builderbot>
-      </entity>
-    </distribute>
-    <distribute>
-     <position method="uniform" min="-0.5,-0.1,0" max="-0.3,0.1,0" />
-      <orientation method="uniform" min="165,0,0" max="195,0,0" />
-      <entity quantity="1" max_trials="100">
-        <builderbot id="builderbot3" debug="false">
-          <body position="-0,0,0" orientation="0,0,0"/>
-          <controller config="builderbot"/>
-        </builderbot>
-      </entity>
-    </distribute>
-     -->
-    <!-- distribute free blocks -->
-     <distribute>
-     <position method="uniform" min="0.6,0.6,0" max="0.8,0.8,0" />
+     <position method="uniform" min="-0.3,-0.4,0" max="0.3,-0.3,0" />
       <orientation method="uniform" min="0,0,0" max="360,0,0" />
-      <entity quantity="2" max_trials="100">
-        <block id="freeblock0" debug="false">
-          <body position="-0,0,0" orientation="0,0,0"/>
-          <controller config="block"/>
-        </block>
-      </entity>
-    </distribute>
-    <distribute>
-     <position method="uniform" min="-0.8,-0.8,0" max="-0.6,-0.6,0" />
-      <orientation method="uniform" min="0,0,0" max="360,0,0" />
-      <entity quantity="2" max_trials="100">
+      <entity quantity="4" max_trials="100">
         <block id="freeblock1" debug="false">
           <body position="-0,0,0" orientation="0,0,0"/>
           <controller config="block"/>
         </block>
       </entity>
     </distribute>
+    <!--
     <distribute>
-     <position method="uniform" min="0.6,-0.6,0" max="0.8,-0.4,0" />
+     <position method="uniform" min="0.3,-0.5,0" max="0.5,-0.3,0" />
       <orientation method="uniform" min="0,0,0" max="360,0,0" />
       <entity quantity="2" max_trials="100">
         <block id="freeblock2" debug="false">
@@ -195,17 +164,7 @@
           <controller config="block"/>
         </block>
       </entity>
-    </distribute>
-    <distribute>
-     <position method="uniform" min="-0.6,0.6,0" max="-0.4,0.8,0" />
-      <orientation method="uniform" min="0,0,0" max="360,0,0" />
-      <entity quantity="2" max_trials="100">
-        <block id="freeblock3" debug="false">
-          <body position="-0,0,0" orientation="0,0,0"/>
-          <controller config="block"/>
-        </block>
-      </entity>
-    </distribute>
+    </distribute>-->
   </arena>
 
  <!-- ******************* -->

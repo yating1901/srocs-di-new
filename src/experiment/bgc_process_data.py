@@ -3,7 +3,7 @@ import pandas
 import numpy 
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
-dataset = pandas.read_hdf('dcp.hdf', 'table')
+dataset = pandas.read_hdf('bgc.hdf', 'table')
 # TODO
 # figure whether an experiment finished sucessfully automatically
 # add code to plot trajectories
@@ -14,9 +14,9 @@ dataset = pandas.read_hdf('dcp.hdf', 'table')
 
 def draw_trajectory(dataset, SEED):
     Set = dataset[dataset["SEED"] == SEED]
-    freeblock = ['00','01','11','12','21','22','31','32']
+    freeblock = ['11','12','13','10']
     for block_index in range(0, len(freeblock)):
-        print(block_index)
+        #print(block_index)
         datum = []
         datum = Set[Set['ID']==freeblock[block_index]][['X','Y','Z']]
         datum = datum.values
@@ -37,31 +37,31 @@ def draw_trajectory(dataset, SEED):
 def box_plot(steps):
     print(steps)
     Data={}
-    Data['two builderbot'] = steps
+    Data['Inert block'] = steps
     df = pandas.DataFrame(Data)
-    #def formatnum(x, pos):
-    #return '$%d$$k$' % (x/1000)
-    #formatter = FuncFormatter(formatnum)
-    df.plot.box(title="Dynamic construction paths ")
+    def formatnum(x, pos):
+        return '$%d$$k$' % (x/1000)
+    formatter = FuncFormatter(formatnum)
+    df.plot.box(title="Block Guided Constuction ")
     plt.grid(linestyle="--", alpha=0.5)
     
     #label
-    plt.ylabel('Number of steps')
-    plt.xlabel('Number of BuilderBots')
-#    plt.gca().yaxis.set_major_formatter(formatter)
-#    plt.savefig('Dcps.png',bbox_inches = 'tight')
+    plt.ylabel('Number Of Steps')
+    plt.xlabel('Type Of Algorithms')
+    plt.gca().yaxis.set_major_formatter(formatter)
+    plt.savefig('Bgc.png',bbox_inches = 'tight')
     plt.show()
 
 
 def calculate_length(Data):
-    freeblock_id = '00'
+    freeblock_id = '10'
     freeblock_data = Data[Data["ID"] == freeblock_id]
     step = numpy.array(freeblock_data.iloc[-1:]["STEP"])[0]   
     return step
 
 
 
-Max_seed = 10
+Max_seed = 25
 data=[]
 steps = []
 for seed in range(1,Max_seed+1):

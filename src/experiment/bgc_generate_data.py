@@ -106,7 +106,7 @@ def create_dataset(name):
 jobs = []
 
 # open the template configuration file
-config = xml.etree.ElementTree.parse('@CMAKE_BINARY_DIR@/experiment/dcp_template.argos').getroot()
+config = xml.etree.ElementTree.parse('@CMAKE_BINARY_DIR@/experiment/bgc_template.argos').getroot()
 framework = config.find('./framework')
 experiment = framework.find('./experiment')
 visualization = config.find('./visualization')
@@ -114,14 +114,14 @@ loop_functions = config.find('./loop_functions')
 
 # experiment parameters
 # TODO set maximum experiment length here
-experiment.attrib['length'] = '10000'
+experiment.attrib['length'] = '0'
 
 # remove the qtopengl visualization
 if visualization.find('./qt-opengl') is not None:
    visualization.remove(visualization.find('./qt-opengl'))
 
-dataset = create_dataset('dcp')
-for run in range(0,10):
+dataset = create_dataset('bgc')
+for run in range(0,25):
     seed = run + 1
     desc = 'no description'
     job = ARGoSJob(desc, config, seed, dataset)

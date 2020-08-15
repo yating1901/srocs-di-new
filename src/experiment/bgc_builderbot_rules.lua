@@ -28,7 +28,7 @@ rules.list = {
          offset_from_reference = vector3(1, 0, 0),
       },
    },
-   {
+   {  safe_zone = 0.3,
       rule_type = 'place',
       structure = {
          {
@@ -39,6 +39,7 @@ rules.list = {
       target = {
          reference_index = vector3(0, 0, 0),
          offset_from_reference = vector3(0, 0, 1),
+         type = 3,
       },
    },
 }
@@ -48,9 +49,9 @@ rules.customize_block_type = function(block)
          return 5
       end
       if block.tags.up ~= nil and block.tags.up.type == 2 then
-         if block.tags.front ~= nil and block.tags.front.type == 3 then
+         --if block.tags.front ~= nil and block.tags.front.type == 3 then
             return 6
-         end
+         --end
       end
    end 
 rules.selection_method = 'nearest_win'
