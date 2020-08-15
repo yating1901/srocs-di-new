@@ -66,7 +66,9 @@ configure_file(${CMAKE_SOURCE_DIR}/experiment/bgc_builderbot_rules.lua
 configure_file(${CMAKE_SOURCE_DIR}/experiment/bgc_block.lua
                ${CMAKE_BINARY_DIR}/experiment/bgc_block.lua
                COPYONLY)
-
+configure_file(${CMAKE_SOURCE_DIR}/experiment/bgc_block_usrcode.lua
+               ${CMAKE_BINARY_DIR}/experiment/bgc_block_usrcode.lua
+               COPYONLY)
 configure_file(${CMAKE_SOURCE_DIR}/experiment/bgc_search_block.lua
                ${CMAKE_BINARY_DIR}/experiment/bgc_search_block.lua
                COPYONLY)

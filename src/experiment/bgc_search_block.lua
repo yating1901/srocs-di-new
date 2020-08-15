@@ -1,3 +1,4 @@
+--assert(loadfile("/usr/local/include/argos3/plugins/robots/builderbot/lua_library.luac"))()
 --package.preload['nodes_search_block'] = function()
    -- register module with logger
    robot.logger:register_module('nodes_search_block')
@@ -45,9 +46,27 @@
                         robot.nodes.create_obstacle_avoidance_node(data),
                         -- obstacle clear, random walk
                         function()
-                           local random_angle =
-                              robot.random.uniform(-robot.api.parameters.search_random_range,
+                           local random_angle = robot.random.uniform(-robot.api.parameters.search_random_range,
                                                    robot.api.parameters.search_random_range)
+                           local green_number = 0
+                           local blue_number = 0
+                           for i, block in pairs(data.blocks) do
+                              for j, tag in pairs(block.tags) do
+                                 --print(block.type)
+                                 if block.type == 3 then
+                                    green_number = green_number + 1
+                                end
+                                 if block.type == 4 then
+                                    blue_number = blue_number + 1
+                                 end
+                              end
+                           end
+                           if green_number >= 3 then
+                              random_angle = -15
+                           end
+                           if blue_number >= 3 then
+                              random_angle = 15
+                           end
                            robot.api.move.with_bearing(robot.api.parameters.default_speed,
                                                       random_angle)
                            return false, true

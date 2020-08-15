@@ -37,7 +37,7 @@ def draw_trajectory(dataset, SEED):
 def box_plot(steps):
     print(steps)
     Data={}
-    Data['Inert block'] = steps
+    Data['Smart Blocks'] = steps
     df = pandas.DataFrame(Data)
     def formatnum(x, pos):
         return '$%d$$k$' % (x/1000)
@@ -49,7 +49,7 @@ def box_plot(steps):
     plt.ylabel('Number Of Steps')
     plt.xlabel('Type Of Algorithms')
     plt.gca().yaxis.set_major_formatter(formatter)
-    plt.savefig('Bgc.png',bbox_inches = 'tight')
+    plt.savefig('bgc_inert_blocks.png',bbox_inches = 'tight')
     plt.show()
 
 

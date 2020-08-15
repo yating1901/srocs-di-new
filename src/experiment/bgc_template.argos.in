@@ -81,18 +81,13 @@
     <box id="bw" size="1,0.025,0.055" movable="false" mass="10">
       <body position="-0.0125,0.5,0" orientation="0,0,0" />
     </box>
-
+    <!--
     <builderbot id="builderbot1" debug="false">
       <body position="0.0,0.15,0.0" orientation="270,0,0"/>
       <controller config="builderbot"/>
     </builderbot>
-    <!--
-    <block id="block0" debug="false" movable="true">
-      <body position="0.0,-0.155,0.010" orientation="0,0,0"/>
-      <controller config="block"/>
-    </block>
     -->
-     <block id="block03" debug="false" movable="false">
+    <block id="block0" debug="false" movable="false">
       <body position="-0.325,0.3,0.0" orientation="0,0,0"/>
       <controller config="block"/>
     </block>
@@ -154,17 +149,17 @@
         </block>
       </entity>
     </distribute>
-    <!--
     <distribute>
-     <position method="uniform" min="0.3,-0.5,0" max="0.5,-0.3,0" />
-      <orientation method="uniform" min="0,0,0" max="360,0,0" />
-      <entity quantity="2" max_trials="100">
-        <block id="freeblock2" debug="false">
-          <body position="-0,0,0" orientation="0,0,0"/>
-          <controller config="block"/>
-        </block>
+     <position method="uniform" min="-0.1,0.15,0" max="0.1,0.15,0" />
+      <orientation method="uniform" min="255,0,0" max="285,0,0" />
+      <entity quantity="1" max_trials="100">
+        <builderbot id="builderbot0" debug="false">
+        <body position="0.0,0.15,0.0" orientation="270,0,0"/>
+          <controller config="builderbot"/>
+        </builderbot>
       </entity>
-    </distribute>-->
+    </distribute>
+
   </arena>
 
  <!-- ******************* -->

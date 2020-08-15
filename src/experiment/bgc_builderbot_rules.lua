@@ -48,6 +48,16 @@ rules.customize_block_type = function(block)
       if block.tags.front ~= nil and block.tags.front.type == 1 then
          return 5
       end
+      if block.tags.up ~= nil and block.tags.up.type == 3 then
+         --if block.tags.front ~= nil and block.tags.front.type == 3 then
+            return 3
+         --end
+      end
+      if block.tags.up ~= nil and block.tags.up.type == 4 then
+         --if block.tags.front ~= nil and block.tags.front.type == 3 then
+            return 4
+         --end
+      end
       if block.tags.up ~= nil and block.tags.up.type == 2 then
          --if block.tags.front ~= nil and block.tags.front.type == 3 then
             return 6
