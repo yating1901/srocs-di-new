@@ -114,18 +114,18 @@ loop_functions = config.find('./loop_functions')
 
 # experiment parameters
 # TODO set maximum experiment length here
-experiment.attrib['length'] = '10000'
+experiment.attrib['length'] = '0'
 
 # remove the qtopengl visualization
 if visualization.find('./qt-opengl') is not None:
    visualization.remove(visualization.find('./qt-opengl'))
 
 dataset = create_dataset('dcp')
-for run in range(0,10):
-    seed = run + 1
-    desc = 'no description'
-    job = ARGoSJob(desc, config, seed, dataset)
-    jobs.append(job)
+for run in range(0,25):
+   seed = run + 1
+   desc = 'no description'
+   job = ARGoSJob(desc, config, seed, dataset)
+   jobs.append(job)
            
 
 # execute all jobs (second number should be how many CPUs you want to use)
