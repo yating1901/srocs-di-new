@@ -6,7 +6,7 @@
   <!-- ************************* -->
   <framework>
     <system threads="0" />
-    <experiment length="0" ticks_per_second="5" random_seed="17" />
+    <experiment length="0" ticks_per_second="5" random_seed="18" />
   </framework>
   <!-- *************** -->
   <!-- * Controllers * -->
@@ -34,7 +34,7 @@
         <builderbot_system implementation="default" />
         <wifi implementation="default" />
       </sensors>
-      <params script="@CMAKE_BINARY_DIR@/experiment/dcp_builderbot.lua"
+      <params script="/home/yating/Workspace/srocs-di-new/build/experiment/dcp_builderbot.lua"
           search_random_range="25" />
     </lua_controller>
 
@@ -46,14 +46,14 @@
       <sensors>
         <radios implementation="default" show_rays="true"/>
       </sensors>
-      <params script="@CMAKE_BINARY_DIR@/experiment/dcp_block.lua" />
+      <params script="/home/yating/Workspace/srocs-di-new/build/experiment/dcp_block.lua" />
     </lua_controller>
   </controllers>
 
   <!-- ****************** -->
   <!-- * Loop functions * -->
   <!-- ****************** -->
-  <loop_functions library="@CMAKE_BINARY_DIR@/libdi_srocs_loop_functions"
+  <loop_functions library="/home/yating/Workspace/srocs-di-new/build/libdi_srocs_loop_functions"
                   label="di_srocs_loop_functions"
                   output_directory=".">
     <condition type = "any" once = "true">
@@ -134,7 +134,6 @@
         </builderbot>
       </entity>
     </distribute>
-    <!--
     <distribute>
      <position method="uniform" min="-0.2,0.3,0" max="0.2,0.5,0" />
       <orientation method="uniform" min="70,0,0" max="110,0,0" />
@@ -145,6 +144,7 @@
         </builderbot>
       </entity>
     </distribute>
+     <!--
     <distribute>
      <position method="uniform" min="0.3,-0.1,0" max="0.5,0.1,0" />
       <orientation method="uniform" min="-20,0,0" max="20,0,0" />
@@ -235,10 +235,9 @@
   <!-- ****************** -->
   <visualization>
     <qt-opengl lua_editor="false" show_boundary="false">
-      <user_functions library="@CMAKE_BINARY_DIR@/libbuilderbot_qtopengl_user_functions"
+      <user_functions library="/home/yating/Workspace/srocs-di-new/build/libbuilderbot_qtopengl_user_functions"
                       label="builderbot_qtopengl_user_functions" />
     </qt-opengl>
   </visualization>
   
 </argos-configuration>
-
