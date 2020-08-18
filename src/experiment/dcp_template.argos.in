@@ -6,7 +6,7 @@
   <!-- ************************* -->
   <framework>
     <system threads="0" />
-    <experiment length="0" ticks_per_second="5" random_seed="18" />
+    <experiment length="0" ticks_per_second="5" random_seed="17" />
   </framework>
   <!-- *************** -->
   <!-- * Controllers * -->
@@ -123,10 +123,10 @@
       <controller config="block"/>
     </block>
 
- <!-- distribute free builderbots -->
+  <!-- distribute free builderbots -->
     <distribute>
-     <position method="uniform" min="-0.2,-0.5,0" max="0.2,-0.3,0" />
-      <orientation method="uniform" min="250,0,0" max="290,0,0" />
+     <position method="uniform" min="-0.1,-0.5,0" max="0.1,-0.3,0" />
+      <orientation method="uniform" min="255,0,0" max="285,0,0" />
       <entity quantity="1" max_trials="100">
         <builderbot id="builderbot0" debug="false">
           <body position="0,0,0" orientation="0,0,0"/>
@@ -134,9 +134,10 @@
         </builderbot>
       </entity>
     </distribute>
+   
     <distribute>
-     <position method="uniform" min="-0.2,0.3,0" max="0.2,0.5,0" />
-      <orientation method="uniform" min="70,0,0" max="110,0,0" />
+     <position method="uniform" min="-0.1,0.3,0" max="0.1,0.5,0" />
+      <orientation method="uniform" min="75,0,0" max="105,0,0" />
       <entity quantity="1" max_trials="100">
         <builderbot id="builderbot1" debug="false">
           <body position="-0,0,0" orientation="0,0,0"/>
@@ -144,10 +145,10 @@
         </builderbot>
       </entity>
     </distribute>
-     <!--
+    
     <distribute>
      <position method="uniform" min="0.3,-0.1,0" max="0.5,0.1,0" />
-      <orientation method="uniform" min="-20,0,0" max="20,0,0" />
+      <orientation method="uniform" min="-15,0,0" max="15,0,0" />
       <entity quantity="1" max_trials="100">
         <builderbot id="builderbot2" debug="false">
           <body position="-0,0,0" orientation="0,0,0"/>
@@ -157,7 +158,7 @@
     </distribute>
     <distribute>
      <position method="uniform" min="-0.5,-0.1,0" max="-0.3,0.1,0" />
-      <orientation method="uniform" min="160,0,0" max="200,0,0" />
+      <orientation method="uniform" min="165,0,0" max="195,0,0" />
       <entity quantity="1" max_trials="100">
         <builderbot id="builderbot3" debug="false">
           <body position="-0,0,0" orientation="0,0,0"/>
@@ -165,12 +166,12 @@
         </builderbot>
       </entity>
     </distribute>
-    -->
+    
     <!-- distribute free blocks -->
      <distribute>
-     <position method="uniform" min="0.6,0.6,0" max="0.8,0.8,0" />
+     <position method="uniform" min="0.4,0.4,0" max="0.6,0.6,0" />
       <orientation method="uniform" min="0,0,0" max="360,0,0" />
-      <entity quantity="2" max_trials="100">
+      <entity quantity="1" max_trials="100">
         <block id="freeblock0" debug="false">
           <body position="-0,0,0" orientation="0,0,0"/>
           <controller config="block"/>
@@ -178,9 +179,9 @@
       </entity>
     </distribute>
     <distribute>
-     <position method="uniform" min="-0.8,-0.8,0" max="-0.6,-0.6,0" />
+     <position method="uniform" min="-0.6,-0.6,0" max="-0.4,-0.4,0" />
       <orientation method="uniform" min="0,0,0" max="360,0,0" />
-      <entity quantity="2" max_trials="100">
+      <entity quantity="1" max_trials="100">
         <block id="freeblock1" debug="false">
           <body position="-0,0,0" orientation="0,0,0"/>
           <controller config="block"/>
@@ -188,9 +189,9 @@
       </entity>
     </distribute>
     <distribute>
-     <position method="uniform" min="0.6,-0.6,0" max="0.8,-0.4,0" />
+     <position method="uniform" min="0.4,-0.6,0" max="0.6,-0.4,0" />
       <orientation method="uniform" min="0,0,0" max="360,0,0" />
-      <entity quantity="2" max_trials="100">
+      <entity quantity="1" max_trials="100">
         <block id="freeblock2" debug="false">
           <body position="-0,0,0" orientation="0,0,0"/>
           <controller config="block"/>
@@ -198,9 +199,9 @@
       </entity>
     </distribute>
     <distribute>
-     <position method="uniform" min="-0.6,0.6,0" max="-0.4,0.8,0" />
+     <position method="uniform" min="-0.6,0.4,0" max="-0.4,0.6,0" />
       <orientation method="uniform" min="0,0,0" max="360,0,0" />
-      <entity quantity="2" max_trials="100">
+      <entity quantity="1" max_trials="100">
         <block id="freeblock3" debug="false">
           <body position="-0,0,0" orientation="0,0,0"/>
           <controller config="block"/>
@@ -208,7 +209,6 @@
       </entity>
     </distribute>
   </arena>
-
  <!-- ******************* -->
   <!-- * Physics engines * -->
   <!-- ******************* -->
