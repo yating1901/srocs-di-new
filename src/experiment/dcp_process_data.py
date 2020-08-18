@@ -3,8 +3,9 @@ import pandas
 import numpy 
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
-dataset1 = pandas.read_hdf('dcp_one_builderbot.hdf', 'table')
-dataset2 = pandas.read_hdf('dcp_two_builderbots.hdf', 'table')
+dataset1 = pandas.read_hdf('dcp.hdf', 'table')
+#dataset2 = pandas.read_hdf('dcp.hdf', 'table')
+#dataset3 = pandas.read_hdf('dcp_four_builderbots.hdf', 'table')
 
 def draw_trajectory(dataset, SEED):
     Set = dataset[dataset["SEED"] == SEED]
@@ -46,13 +47,13 @@ def Is_ended_automatically(dataset,SEED,steps):
             num = num +1
         if num == 2:
             Is_Ended = True
-    print( "Is_ended_automatically:", Is_Ended)
+    #print( "Is_ended_automatically:", Is_Ended)
     return Is_Ended
 
 def box_plot(steps):
     #print(steps)
     Data={}
-    Data['two builderbots'] = steps
+    Data['One Builderbots'] = steps
     df = pandas.DataFrame(Data)
     def formatnum(x, pos):
         return '$%d$$k$' % (x/1000)
@@ -61,10 +62,10 @@ def box_plot(steps):
     plt.grid(linestyle="--", alpha=0.5)
     
     #label
-    plt.ylabel('Number of steps')
+    plt.ylabel('Number of Steps')
     plt.xlabel('Number of BuilderBots')
     plt.gca().yaxis.set_major_formatter(formatter)
-    plt.savefig('Dcps_two_builderbots.png',bbox_inches = 'tight')
+    plt.savefig('Dcps_One_Builderbots.png',bbox_inches = 'tight')
     plt.show()
 
 
@@ -81,19 +82,19 @@ data=[]
 steps = []
 freeblock = ['00','01','10','11','20','21','30','31']
 for seed in range(1,Max_seed+1):
-    data.append(dataset2[dataset2["SEED"] == seed])
+    data.append(dataset1[dataset1["SEED"] == seed])
     steps.append(int(len(data[seed-1])/len(freeblock)))
     #steps.append(calculate_length(data[seed-1]))
     
     
 box_plot(steps)
-draw_trajectory(dataset2,9)
+#draw_trajectory(dataset3,9)
 
 
-Is_all_ended = False
+Is_all_ended = True
 for seed in range(1, Max_seed+1):
-    print("steps:",steps[seed-1])
-    Is_ended = Is_ended_automatically(dataset2,seed,steps[seed-1])
+    print("seed:", seed,"steps:",steps[seed-1])
+    Is_ended = Is_ended_automatically(dataset1,seed,steps[seed-1])
     Is_all_ended = Is_all_ended and Is_ended
     
 print("Is_All_Ended:", Is_all_ended)
